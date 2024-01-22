@@ -10,13 +10,13 @@ Formly est une bibliothèque Angular qui fournit une solution flexible et réuti
 
 Pour utiliser Formly, vous devez d'abord l'installer dans votre projet. Vous pouvez le faire en exécutant la commande suivante dans votre terminal :
 
-```bash
+```bash copy
 npm install @ngx-formly/core @ngx-formly/bootstrap
 ```
 
 Ensuite, vous pouvez importer le module `FormlyModule` dans votre module et l'ajouter à la liste des imports :
 
-```typescript
+```typescript copy
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
@@ -32,14 +32,14 @@ export class AppModule { }
 
 Maintenant, vous pouvez utiliser Formly pour créer des formulaires. Par exemple, pour créer un formulaire avec un champ de texte et un bouton de soumission, vous pouvez faire comme suit :
 
-```html
+```html copy
 <form [formGroup]="form" (ngSubmit)="submit(model)">
  <formly-form [form]="form" [fields]="fields"></formly-form>
  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
 
-```typescript
+```typescript copy
 fields = [
  {
     key: 'text',

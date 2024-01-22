@@ -10,7 +10,7 @@ Une route dynamique est une route qui contient un paramètre variable. Ce param�
 
 Pour créer une route dynamique, vous devez ajouter un paramètre à l'URL de la route lors de la configuration des routes. Voici un exemple :
 
-```typescript
+```typescript copy
 const routes: Routes = [
  { path: 'products/:id', component: ProductDetailComponent },
 ];
@@ -22,7 +22,7 @@ Dans cet exemple, `:id` est un paramètre de route. Lorsque vous naviguez vers u
 
 Pour accéder aux paramètres de route dans votre composant, vous pouvez injecter le service `ActivatedRoute` dans le constructeur de votre composant. Voici un exemple :
 
-```typescript
+```typescript copy
 constructor(private route: ActivatedRoute) { }
 
 ngOnInit() {

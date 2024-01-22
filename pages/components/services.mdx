@@ -8,7 +8,7 @@ Un Service en Angular est une classe avec un but spécifique. Il peut être inje
 
 Pour créer un Service, vous pouvez utiliser la commande Angular CLI `ng generate service` ou `ng g s` pour court. Par exemple, pour créer un Service appelé `DataService`, vous pouvez exécuter la commande suivante :
 
-```bash
+```bash copy
 ng generate service data
 ```
 
@@ -18,7 +18,7 @@ Cette commande va générer un fichier `data.service.ts` avec une classe `DataSe
 
 Pour utiliser un Service, vous devez l'injecter dans le constructeur du composant où vous souhaitez l'utiliser. Voici un exemple d'utilisation d'un Service :
 
-```typescript
+```typescript copy
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
 

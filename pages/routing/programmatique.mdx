@@ -12,7 +12,7 @@ Pour naviguer programmatiquement, vous devez injecter le service `Router` dans v
 
 Voici un exemple de navigation programmatique :
 
-```typescript
+```typescript copy
 import { Router } from '@angular/router';
 
 constructor(private router: Router) { }
@@ -28,7 +28,7 @@ Dans cet exemple, la méthode `navigateToProduct` prend un ID de produit en para
 
 Supposons que vous ayez un formulaire de connexion et que vous souhaitiez naviguer vers une page d'accueil après une connexion réussie. Voici comment vous pourriez procéder :
 
-```typescript
+```typescript copy
 login(username: string, password: string) {
  // Simulate a login API call
  this.authService.login(username, password).subscribe({

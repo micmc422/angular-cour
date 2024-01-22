@@ -6,7 +6,7 @@ Les actions sont des objets qui décrivent ce qui doit se produire dans l'applic
 
 Voici un exemple d'action :
 
-```typescript
+```typescript copy
 export const increment = () => ({
  type: '[Counter Component] Increment'
 });
@@ -18,7 +18,7 @@ Les réducteurs sont des fonctions pures qui prennent l'état actuel et une acti
 
 Voici un exemple de réducteur :
 
-```typescript
+```typescript copy
 export function counterReducer(state: number = 0, action: Action) {
  switch (action.type) {
     case '[Counter Component] Increment':
@@ -35,7 +35,7 @@ Le store est l'objet qui reçoit les actions et les transmet aux réducteurs. Il
 
 Voici comment vous pouvez créer un store :
 
-```typescript
+```typescript copy
 import { createStore } from '@ngrx/store';
 import { counterReducer } from './counter.reducer';
 

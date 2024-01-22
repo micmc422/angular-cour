@@ -6,13 +6,13 @@ Voici comment vous pouvez l'utiliser :
 
 Supposons que vous ayez une liste d'objets `users` et que vous vouliez afficher un message différent en fonction du nombre d'utilisateurs. Vous pouvez utiliser `*ngContainer` avec `*ngIf` pour cela.
 
-```typescript
+```typescript copy
 users = [{ name: 'John' }, { name: 'Jane' }, { name: 'Doe' }];
 ```
 
 Et dans votre template HTML :
 
-```html
+```html copy
 <ng-container *ngIf="users.length > 0; else noUsers">
  <h2>Users</h2>
  <ul>

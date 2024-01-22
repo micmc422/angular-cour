@@ -4,13 +4,13 @@ La directive `*ngIf` est une autre directive structurelle dans Angular qui perme
 
 Supposons que vous ayez une variable `isLoggedIn` qui indique si l'utilisateur est connecté ou non. Vous pouvez utiliser `*ngIf` pour afficher un message différent en fonction de la valeur de `isLoggedIn`.
 
-```typescript
+```typescript copy
 isLoggedIn = true;
 ```
 
 Et dans votre template HTML :
 
-```html
+```html copy
 <div *ngIf="isLoggedIn; else loggedOut">
  Welcome back!
 </div>

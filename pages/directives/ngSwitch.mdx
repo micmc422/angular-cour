@@ -4,13 +4,13 @@ La directive `*ngSwitch` est une autre directive structurelle dans Angular qui p
 
 Supposons que vous ayez une variable `status` qui peut prendre l'une des valeurs suivantes : `'online'`, `'offline'`, ou `'away'`. Vous pouvez utiliser `*ngSwitch` pour afficher un message différent en fonction de la valeur de `status`.
 
-```typescript
+```typescript copy
 status = 'online';
 ```
 
 Et dans votre template HTML :
 
-```html
+```html copy
 <div [ngSwitch]="status">
  <span *ngSwitchCase="'online'">User is online</span>
  <span *ngSwitchCase="'offline'">User is offline</span>

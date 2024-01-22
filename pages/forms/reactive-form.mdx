@@ -6,7 +6,7 @@ Reactive Forms est une API de formulaire flexible et puissante qui permet de gé
 
 Pour définir des règles de validation pour un champ de formulaire, vous pouvez utiliser la méthode `setValidators()` sur une instance de `AbstractControl`. Par exemple, pour ajouter une règle de validation requise à un champ de formulaire, vous pouvez faire comme suit :
 
-```typescript
+```typescript copy
 this.form = this.fb.group({
  email: ['', [Validators.required, Validators.email]]
 });
@@ -18,7 +18,7 @@ Dans cet exemple, le champ `email` est initialisé avec une chaîne vide comme v
 
 Pour afficher des messages d'erreur lorsque la validation échoue, vous pouvez utiliser la propriété `errors` sur une instance de `AbstractControl`. Par exemple, pour afficher un message d'erreur lorsque le champ `email` est vide, vous pouvez faire comme suit :
 
-```html
+```html copy
 <input type="email" formControlName="email">
 <div *ngIf="form.controls.email.errors?.required">Email is required</div>
 ```
@@ -29,7 +29,7 @@ Dans cet exemple, le message d'erreur "Email is required" sera affiché si le ch
 
 Pour gérer la soumission du formulaire, vous pouvez utiliser la méthode `submit()` sur une instance de `FormGroup`. Par exemple, pour soumettre le formulaire lorsque l'utilisateur clique sur un bouton, vous pouvez faire comme suit :
 
-```html
+```html copy
 <button (click)="form.submit()">Submit</button>
 ```
 

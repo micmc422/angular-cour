@@ -4,7 +4,7 @@ La directive `*ngFor` est l'une des directives structurelles les plus couramment
 
 Supposons que vous ayez un tableau d'objets représentant une liste de livres. Chaque livre a un titre et un auteur. Vous pouvez utiliser `*ngFor` pour afficher chaque livre dans une liste HTML.
 
-```typescript
+```typescript copy
 books = [
  { title: 'Book 1', author: 'Author 1' },
  { title: 'Book 2', author: 'Author 2' },
@@ -14,7 +14,7 @@ books = [
 
 Et dans votre template HTML :
 
-```html
+```html copy
 <ul>
  <li *ngFor="let book of books">
     {{ book.title }} by {{ book.author }}
@@ -28,13 +28,13 @@ Dans cet exemple, `books` est un tableau de données et `book` est une variable 
 
 Parfois, vous pouvez vouloir transformer les données avant de les afficher. Par exemple, vous pouvez vouloir afficher uniquement les titres des livres. Vous pouvez le faire en utilisant la fonction `map` de JavaScript dans combinaison avec `*ngFor`.
 
-```typescript
+```typescript copy
 bookTitles = this.books.map(book => book.title);
 ```
 
 Et dans votre template HTML :
 
-```html
+```html copy
 <ul>
  <li *ngFor="let title of bookTitles">
     {{ title }}
