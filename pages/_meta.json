@@ -5,6 +5,9 @@
    "installation": {
       "title": "Installation et configuration"
    },
+   "angular-cli": {
+      "title": "Angular CLI"
+   },
    "components": {
       "title": "Comprendre les composants"
    },

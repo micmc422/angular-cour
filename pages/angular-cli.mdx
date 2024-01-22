@@ -1,0 +1,63 @@
+# Présentation d'Angular CLI
+
+Angular CLI est un outil de ligne de commande qui sert à automatiser le processus de développement des applications Angular. Il offre une série de commandes pour créer des projets, générer des fichiers, exécuter des tests, et plus encore.
+
+## Commandes les plus utiles d'Angular CLI
+
+### Création d'un nouveau projet
+```bash
+ng new project-name
+```
+Cette commande crée un nouveau projet Angular avec une structure de répertoire standard et des fichiers de configuration prédéfinis.
+
+### Démarrage du serveur de développement
+```bash
+ng serve
+```
+Lance un serveur de développement local et ouvre l'application dans le navigateur par défaut.
+
+### Génération de composants et services
+```bash
+ng generate component component-name
+ng generate service service-name
+```
+Ces commandes génèrent respectivement un nouveau composant ou service avec les fichiers nécessaires et les enregistrent dans le module approprié.
+
+### Construction pour la production
+```bash
+ng build --prod
+```
+Compile l'application avec des optimisations pour l'environnement de production, y compris la minification et l'arbre de secouage.
+
+### Exécution des tests unitaires
+```bash
+ng test
+```
+Exécute les tests unitaires dans le projet en utilisant Karma et Jasmine.
+
+### Exécution des tests d'intégration
+```bash
+ng e2e
+```
+Lance les tests end-to-end à l'aide de Protractor.
+
+### Mise à jour d'Angular
+```bash
+ng update
+```
+Met à jour Angular et ses dépendances à la dernière version compatible.
+
+### Ajout de bibliothèques
+```bash
+ng add @angular/material
+```
+Ajoute des bibliothèques ou des fonctionnalités à votre projet, comme Angular Material dans cet exemple.
+
+### Analyse de la taille du bundle
+```bash
+ng build --prod --stats-json
+ng stats
+```
+Génère des statistiques sur la taille du bundle, utiles pour l'analyse des performances.
+
+Ces commandes constituent l'essentiel de ce que vous pouvez faire avec Angular CLI pour gérer efficacement le cycle de vie de développement de votre application Angular. Pour une liste complète des commandes et options, vous pouvez consulter la documentation officielle ou exécuter `ng help` dans votre terminal.
