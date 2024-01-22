@@ -1,0 +1,30 @@
+La directive `*ngContainer` est une directive structurelle dans Angular qui sert de conteneur invisible pour les directives `*ngIf`, `*ngFor`, `*ngSwitch`, etc. Elle n'ajoute pas d'éléments supplémentaires au DOM, contrairement à d'autres directives structurales comme `*ngIf` ou `*ngFor`.
+
+Voici comment vous pouvez l'utiliser :
+
+## Utilisation de *ngContainer pour le conteneur invisible
+
+Supposons que vous ayez une liste d'objets `users` et que vous vouliez afficher un message différent en fonction du nombre d'utilisateurs. Vous pouvez utiliser `*ngContainer` avec `*ngIf` pour cela.
+
+```typescript
+users = [{ name: 'John' }, { name: 'Jane' }, { name: 'Doe' }];
+```
+
+Et dans votre template HTML :
+
+```html
+<ng-container *ngIf="users.length > 0; else noUsers">
+ <h2>Users</h2>
+ <ul>
+   <li *ngFor="let user of users">{{ user.name }}</li>
+ </ul>
+</ng-container>
+
+<ng-template #noUsers>
+ <p>No users found.</p>
+</ng-template>
+```
+
+Dans cet exemple, `*ngContainer` est utilisé comme un conteneur pour les directives `*ngIf` et `*ngFor`. Si la longueur de `users` est supérieure à 0, alors le contenu à l'intérieur de `*ngContainer` sera affiché. Sinon, le contenu de l'élément `<ng-template>` avec le nom `#noUsers` sera affiché.
+
+Notez que `*ngContainer` n'ajoute pas d'éléments supplémentaires au DOM, donc il n'y a pas d'impact sur le rendu de votre page.

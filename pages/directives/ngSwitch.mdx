@@ -1,0 +1,23 @@
+La directive `*ngSwitch` est une autre directive structurelle dans Angular qui permet de réaliser une logique de sélection multiple. Elle est similaire à une instruction `switch` dans JavaScript. Voici comment vous pouvez l'utiliser :
+
+## Utilisation de *ngSwitch pour le contrôle de flux conditionnel
+
+Supposons que vous ayez une variable `status` qui peut prendre l'une des valeurs suivantes : `'online'`, `'offline'`, ou `'away'`. Vous pouvez utiliser `*ngSwitch` pour afficher un message différent en fonction de la valeur de `status`.
+
+```typescript
+status = 'online';
+```
+
+Et dans votre template HTML :
+
+```html
+<div [ngSwitch]="status">
+ <span *ngSwitchCase="'online'">User is online</span>
+ <span *ngSwitchCase="'offline'">User is offline</span>
+ <span *ngSwitchDefault>User is away</span>
+</div>
+```
+
+Dans cet exemple, `[ngSwitch]` est une liaison de propriété qui définit la valeur à évaluer. `*ngSwitchCase` est une directive qui définit une case pour la directive `*ngSwitch`. `*ngSwitchDefault` est une directive qui définit le contenu par défaut à afficher si aucune des cases ne correspond.
+
+Si `status` est `'online'`, alors le premier `<span>` sera affiché. Si `status` est `'offline'`, alors le deuxième `<span>` sera affiché. Si `status` est `'away'` ou toute autre valeur, alors le troisième `<span>` sera affiché.

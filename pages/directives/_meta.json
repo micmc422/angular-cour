@@ -1,0 +1,14 @@
+{
+    "ngFor": {
+        "title": "*ngFor pour la boucle sur les tableaux"
+    },
+    "ngSwitch": {
+        "title": "*ngSwitch pour le contrôle de flux conditionnel"
+    },
+    "ngIf": {
+        "title": "*ngIf pour le contrôle de flux conditionnel basé sur un booléen"
+    },
+    "ngContainer": {
+        "title": "*ngContainer pour le conteneur invisible"
+    }
+}

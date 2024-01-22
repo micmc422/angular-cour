@@ -8,6 +8,9 @@
    "components": {
       "title": "Comprendre les composants"
    },
+   "directives": {
+      "title": "Directives Structurelles Angular"
+   },
    "ngrx": {
       "title": "Gestion de l'état avec NgRx"
    },

@@ -1,0 +1,45 @@
+La directive `*ngFor` est l'une des directives structurelles les plus couramment utilisées dans Angular. Elle permet de répéter un bloc de code HTML pour chaque élément d'un tableau. Voici comment vous pouvez l'utiliser :
+
+## Utilisation de *ngFor pour la boucle sur les tableaux
+
+Supposons que vous ayez un tableau d'objets représentant une liste de livres. Chaque livre a un titre et un auteur. Vous pouvez utiliser `*ngFor` pour afficher chaque livre dans une liste HTML.
+
+```typescript
+books = [
+ { title: 'Book 1', author: 'Author 1' },
+ { title: 'Book 2', author: 'Author 2' },
+ { title: 'Book 3', author: 'Author 3' },
+];
+```
+
+Et dans votre template HTML :
+
+```html
+<ul>
+ <li *ngFor="let book of books">
+    {{ book.title }} by {{ book.author }}
+ </li>
+</ul>
+```
+
+Dans cet exemple, `books` est un tableau de données et `book` est une variable temporaire qui représente l'élément actuel du tableau pendant l'itération. `{{ book.title }}` et `{{ book.author }}` sont des expressions de liaison qui affichent le titre et l'auteur de chaque livre.
+
+## Exemple d'utilisation de *ngFor avec une fonction map
+
+Parfois, vous pouvez vouloir transformer les données avant de les afficher. Par exemple, vous pouvez vouloir afficher uniquement les titres des livres. Vous pouvez le faire en utilisant la fonction `map` de JavaScript dans combinaison avec `*ngFor`.
+
+```typescript
+bookTitles = this.books.map(book => book.title);
+```
+
+Et dans votre template HTML :
+
+```html
+<ul>
+ <li *ngFor="let title of bookTitles">
+    {{ title }}
+ </li>
+</ul>
+```
+
+Dans cet exemple, `bookTitles` est un nouveau tableau contenant uniquement les titres des livres. `*ngFor` est ensuite utilisé pour afficher chaque titre dans une liste HTML.

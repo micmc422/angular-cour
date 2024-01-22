@@ -1,0 +1,25 @@
+La directive `*ngIf` est une autre directive structurelle dans Angular qui permet de conditionner l'affichage d'un élément HTML en fonction d'une expression booléenne. Voici comment vous pouvez l'utiliser :
+
+## Utilisation de *ngIf pour le contrôle de flux conditionnel basé sur la vérité
+
+Supposons que vous ayez une variable `isLoggedIn` qui indique si l'utilisateur est connecté ou non. Vous pouvez utiliser `*ngIf` pour afficher un message différent en fonction de la valeur de `isLoggedIn`.
+
+```typescript
+isLoggedIn = true;
+```
+
+Et dans votre template HTML :
+
+```html
+<div *ngIf="isLoggedIn; else loggedOut">
+ Welcome back!
+</div>
+
+<ng-template #loggedOut>
+ Please log in.
+</ng-template>
+```
+
+Dans cet exemple, `*ngIf` est une directive qui définit une condition pour l'affichage de l'élément `<div>`. Si `isLoggedIn` est `true`, alors le `<div>` sera affiché. Sinon, le contenu de l'élément `<ng-template>` avec le nom `#loggedOut` sera affiché.
+
+Notez que `else` est utilisé pour définir un bloc de code alternatif à afficher si la condition `*ngIf` est fausse. L'élément `<ng-template>` est utilisé pour définir ce bloc de code alternatif.
