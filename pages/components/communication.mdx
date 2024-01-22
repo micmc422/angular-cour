@@ -1,0 +1,53 @@
+# Communication entre les composants avec Inputs et Outputs
+
+## Qu'est-ce que les Inputs et Outputs?
+
+Les Inputs et Outputs sont deux types de propriétés spéciaux en Angular qui permettent la communication entre les composants. Ils sont souvent utilisés pour passer des données d'un composant parent à un composant enfant, ou pour émettre des événements d'un composant enfant à un composant parent.
+
+## Comment utiliser les Inputs?
+
+Les Inputs sont utilisés pour passer des données d'un composant parent à un composant enfant. Ils sont définis dans le composant enfant et peuvent être liés à des propriétés du composant parent.
+
+Voici un exemple d'utilisation d'un Input :
+
+```typescript
+import { Component, Input } from '@angular/core';
+
+@Component({
+ selector: 'app-child',
+ template: `<p>{{parentData}}</p>`
+})
+export class ChildComponent {
+ @Input() parentData: string;
+}
+```
+
+Dans cet exemple, `parentData` est un Input qui peut être lié à une propriété du composant parent.
+
+## Comment utiliser les Outputs?
+
+Les Outputs sont utilisés pour émettre des événements d'un composant enfant à un composant parent. Ils sont définis dans le composant enfant et peuvent être écoutés par le composant parent.
+
+Voici un exemple d'utilisation d'un Output :
+
+```typescript
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+ selector: 'app-child',
+ template: `<button (click)="sendEvent()">Send Event</button>`
+})
+export class ChildComponent {
+ @Output() event = new EventEmitter<string>();
+
+ sendEvent() {
+    this.event.emit('Hello from child component!');
+ }
+}
+```
+
+Dans cet exemple, `event` est un Output qui émet un événement lorsque la méthode `sendEvent()` est appelée. Le composant parent peut écouter cet événement et agir en conséquence.
+
+## Conclusion
+
+Les Inputs et Outputs sont des outils puissants pour la communication entre les composants en Angular. Ils permettent de créer des composants réutilisables et modulables qui peuvent interagir efficacement entre eux.

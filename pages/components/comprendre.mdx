@@ -1,0 +1,35 @@
+# Comprendre les composants Angular
+
+## Qu'est-ce qu'un composant Angular?
+
+Les composants sont l'un des principaux éléments de la structure d'une application Angular. Ils sont responsables de la logique et de la présentation de l'interface utilisateur. Chaque composant est une classe TypeScript avec un décorateur `@Component` qui définit ses métadonnées.
+
+## Comment définir un composant?
+
+La définition d'un composant se fait généralement dans un fichier TypeScript (.ts) et comprend plusieurs parties :
+
+1. **Décorateur `@Component`** : Ce décorateur indique à Angular que cette classe est un composant. Il prend un objet de configuration qui définit les métadonnées du composant.
+
+2. **Template** : Le template est une chaîne de caractères qui définit la structure HTML du composant. Il est généralement défini dans un fichier HTML séparé et référencé dans le décorateur `@Component`.
+
+3. **Styles** : Les styles peuvent être définis dans un fichier CSS séparé et référencé dans le décorateur `@Component`, ou ils peuvent être définis directement dans le décorateur en utilisant la propriété `styles`.
+
+4. **Class** : La classe elle-même contient la logique du composant. Elle peut contenir des méthodes, des propriétés et des événements.
+
+## Comment utiliser un composant?
+
+Pour utiliser un composant, vous devez l'ajouter à un autre composant ou à un module via son sélecteur. Par exemple, si le sélecteur du composant `ExampleComponent` est `'app-example'`, vous pouvez l'utiliser dans un autre composant comme suit :
+
+```html
+<app-example></app-example>
+```
+
+Cela insérera le template du composant `ExampleComponent` à l'emplacement où la balise `<app-example>` est placée.
+
+## Sujets supplémentaires
+
+Parmi les autres sujets que nous aborderons, nous discuterons des directives, des pipes, des templates, des styles, et de la gestion de l'état avec NgRx.
+
+## Préparation à l'exploration
+
+Préparez-vous à plonger profondément dans le monde des composants Angular !

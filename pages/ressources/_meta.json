@@ -1,0 +1,22 @@
+{
+    "angular_documentation": {
+        "title": "Documentation officielle d'Angular",
+        "url": "https://angular.io/docs"
+    },
+    "angular_tutorial": {
+        "title": "Tutoriel Angular pour les débutants",
+        "url": "https://angular.io/tutorial"
+    },
+    "angular_style_guide": {
+        "title": "Guide de style Angular",
+        "url": "https://angular.io/guide/styleguide"
+    },
+    "angular_university": {
+        "title": "Angular University",
+        "url": "https://angular-university.io/"
+    },
+    "angular_in_depth": {
+        "title": "Angular In Depth",
+        "url": "https://indepth.dev/angular/"
+    }
+}

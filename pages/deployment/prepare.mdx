@@ -1,0 +1,35 @@
+# Préparation de l'application pour la production
+
+La préparation de votre application Angular pour la production est une étape cruciale avant de pouvoir la déployer. Cela implique de compiler votre application en une version optimisée pour la production, de supprimer les logs de débogage, et de configurer votre application pour utiliser les variables d'environnement appropriées.
+
+## Compilation de l'application
+
+La première étape de la préparation de votre application pour la production est de la compiler en une version optimisée pour la production. Cela peut être fait en utilisant la commande `ng build --prod` dans votre terminal. Cette commande compile votre application en une version minifiée et optimisée pour la performance.
+
+```bash
+ng build --prod
+```
+
+## Suppression des logs de débogage
+
+Une fois que votre application a été compilée, la prochaine étape consiste à supprimer les logs de débogage. Ces logs peuvent contenir des informations sensibles et doivent être supprimés avant de déployer votre application. Vous pouvez supprimer les logs de débogage en modifiant votre fichier `environment.prod.ts` et en définissant les variables de log à `false`.
+
+```typescript
+export const environment = {
+ production: true,
+ enableDebugLogging: false
+};
+```
+
+## Configuration des variables d'environnement
+
+Enfin, vous devrez configurer vos variables d'environnement pour votre application. Les variables d'environnement sont des valeurs qui peuvent varier en fonction de l'environnement dans lequel votre application est déployée. Par exemple, vous pouvez avoir une URL d'API différente pour votre environnement de développement et votre environnement de production. Vous pouvez configurer vos variables d'environnement en modifiant votre fichier `environment.prod.ts`.
+
+```typescript
+export const environment = {
+ production: true,
+ apiUrl: 'https://api.example.com'
+};
+```
+
+Maintenant, votre application Angular est prête pour la production. Dans la prochaine section, nous couvrirons comment déployer votre application sur Firebase.

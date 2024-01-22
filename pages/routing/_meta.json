@@ -1,0 +1,11 @@
+{
+    "intro": {
+        "title": "Introduction à Angular Router"
+    },
+    "dynamiques": {
+        "title": "Création de routes dynamiques"
+    },
+    "programmatique": {
+        "title": "Navigation programmatique"
+    }
+}

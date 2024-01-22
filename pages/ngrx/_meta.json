@@ -1,0 +1,8 @@
+{
+    "actions": {
+        "title": "Création d'actions, reducers et stores"
+    },
+    "selecteurs": {
+        "title": "Utilisation de sélecteurs pour accéder à l'état"
+    }
+}

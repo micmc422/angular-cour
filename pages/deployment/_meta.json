@@ -1,0 +1,4 @@
+{
+    "prepare": "Préparation de l'application pour la production",
+    "deploy":"Déploiement sur Firebase ou Netlify"
+}

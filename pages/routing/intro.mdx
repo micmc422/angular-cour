@@ -1,0 +1,37 @@
+# Introduction à Angular Router
+
+Angular Router est un module puissant qui permet de gérer le routage dans une application Angular. Il fournit une API pour configurer les routes, naviguer entre les vues, et même créer des routes dynamiques.
+
+## Qu'est-ce qu'Angular Router ?
+
+Angular Router est un service qui fournit une API pour configurer les routes dans une application Angular. Il permet de définir des routes pour les différentes vues de l'application, et de naviguer entre ces vues en fonction de l'URL actuelle.
+
+## Comment utiliser Angular Router ?
+
+Pour utiliser Angular Router, vous devez d'abord l'importer dans votre module principal. Ensuite, vous pouvez définir vos routes en utilisant la méthode `forRoot()` ou `forChild()`.
+
+Voici un exemple de configuration de base pour Angular Router :
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+ declarations: [
+    AppComponent
+ ],
+ imports: [
+    BrowserModule,
+    AppRoutingModule
+ ],
+ providers: [],
+ bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Dans cet exemple, `AppRoutingModule` est un module qui contient toutes les configurations de routage pour l'application.
+
+Maintenant, vous êtes prêt à commencer à utiliser Angular Router dans votre application Angular. Dans les sections suivantes, nous allons explorer en détail comment configurer les routes, comment naviguer entre les vues, et comment créer des routes dynamiques.

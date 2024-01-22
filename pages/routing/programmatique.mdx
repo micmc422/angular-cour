@@ -1,0 +1,48 @@
+# Navigation programmatique
+
+La navigation programmatique est une technique qui permet de naviguer entre les routes dans une application Angular sans l'utilisation de liens. Elle est particulièrement utile dans les cas où la navigation doit être déclenchée par des événements autres que le clic de l'utilisateur, comme la fin d'une opération asynchrone ou la validation d'un formulaire.
+
+## Qu'est-ce que la navigation programmatique ?
+
+La navigation programmatique fait référence à la capacité de changer de route dans une application Angular en utilisant du code au lieu de liens. Angular fournit le service `Router` pour faciliter cette tâche.
+
+## Comment utiliser la navigation programmatique ?
+
+Pour naviguer programmatiquement, vous devez injecter le service `Router` dans votre composant. Ensuite, vous pouvez appeler la méthode `navigate` ou `navigateByUrl` pour changer de route.
+
+Voici un exemple de navigation programmatique :
+
+```typescript
+import { Router } from '@angular/router';
+
+constructor(private router: Router) { }
+
+navigateToProduct(id: number) {
+ this.router.navigate(['/products', id]);
+}
+```
+
+Dans cet exemple, la méthode `navigateToProduct` prend un ID de produit en paramètre et utilise le service `Router` pour naviguer vers la route `/products/:id`.
+
+## Exemple de navigation après une action
+
+Supposons que vous ayez un formulaire de connexion et que vous souhaitiez naviguer vers une page d'accueil après une connexion réussie. Voici comment vous pourriez procéder :
+
+```typescript
+login(username: string, password: string) {
+ // Simulate a login API call
+ this.authService.login(username, password).subscribe({
+    next: (user) => {
+      // Navigate to the home page after login
+      this.router.navigate(['/home']);
+    },
+    error: (error) => {
+      console.error(error);
+    }
+ });
+}
+```
+
+Dans cet exemple, après que le service `authService` ait confirmé une connexion réussie, la méthode `navigate` est utilisée pour rediriger l'utilisateur vers la page d'accueil.
+
+Maintenant, vous savez comment effectuer une navigation programmatique dans Angular pour diriger les utilisateurs à travers votre application de manière dynamique et réactive.

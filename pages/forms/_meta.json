@@ -1,0 +1,11 @@
+{
+    "local": {
+        "title": "Gestion de l'état local dans les formulaires"
+    },
+    "reactive-form": {
+        "title": "Validation des formulaires avec Reactive Forms"
+    },
+    "librairies": {
+        "title": "Utilisation de bibliothèques tierces"
+    }
+}

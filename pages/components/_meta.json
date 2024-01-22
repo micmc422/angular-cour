@@ -1,0 +1,11 @@
+{
+    "comprendre": {
+        "title": "Définition et utilisation des composants"
+    },
+    "communication": {
+        "title": "Inputs et Outputs pour la communication entre les composants"
+    },
+    "services": {
+        "title": "Services pour partager des données et des fonctions entre les composants"
+    }
+}

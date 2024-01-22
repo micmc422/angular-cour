@@ -1,0 +1,33 @@
+{
+   "index": {
+      "title": "Introduction à Angular"
+   },
+   "installation": {
+      "title": "Installation et configuration"
+   },
+   "components": {
+      "title": "Comprendre les composants"
+   },
+   "ngrx": {
+      "title": "Gestion de l'état avec NgRx"
+   },
+   "forms": {
+      "title": "Formulaires et validation"
+   },
+   "routing": {
+      "title": "Routage avec Angular Router"
+   },
+   "deployment": {
+      "title": "Déploiement d'une application"
+   },
+   "exercice": {
+      "title": "Exercice"
+   },
+   "ressources": {
+      "title": "Ressources"
+   },
+   "plan": {
+      "title": "Déploiement d'une application",
+      "display": "hidden"
+   }
+}

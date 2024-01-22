@@ -1,0 +1,36 @@
+# Création de routes dynamiques
+
+Les routes dynamiques sont des routes qui contiennent des paramètres variables. Elles sont utiles lorsque vous avez besoin de naviguer vers une vue qui dépend d'une certaine donnée, comme l'ID d'un produit dans une boutique en ligne.
+
+## Qu'est-ce qu'une route dynamique ?
+
+Une route dynamique est une route qui contient un paramètre variable. Ce paramètre est indiqué par un deux-points (:) dans l'URL de la route. Par exemple, dans l'URL `/products/:id`, `:id` est un paramètre de route.
+
+## Comment créer une route dynamique ?
+
+Pour créer une route dynamique, vous devez ajouter un paramètre à l'URL de la route lors de la configuration des routes. Voici un exemple :
+
+```typescript
+const routes: Routes = [
+ { path: 'products/:id', component: ProductDetailComponent },
+];
+```
+
+Dans cet exemple, `:id` est un paramètre de route. Lorsque vous naviguez vers une URL comme `/products/1`, le `ProductDetailComponent` sera chargé et le paramètre `id` sera automatiquement rempli avec la valeur `1`.
+
+## Comment accéder aux paramètres de route ?
+
+Pour accéder aux paramètres de route dans votre composant, vous pouvez injecter le service `ActivatedRoute` dans le constructeur de votre composant. Voici un exemple :
+
+```typescript
+constructor(private route: ActivatedRoute) { }
+
+ngOnInit() {
+ const id = this.route.snapshot.paramMap.get('id');
+ console.log(id); // logs the value of the id parameter
+}
+```
+
+Dans cet exemple, `this.route.snapshot.paramMap.get('id')` renvoie la valeur du paramètre `id` de l'URL actuelle.
+
+Maintenant, vous savez comment créer et utiliser des routes dynamiques dans Angular. Dans les sections suivantes, nous allons explorer en détail comment naviguer programmatiquement entre les vues.

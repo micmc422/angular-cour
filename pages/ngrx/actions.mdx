@@ -1,0 +1,45 @@
+# Création d'actions, reducers et stores
+
+## Actions
+
+Les actions sont des objets qui décrivent ce qui doit se produire dans l'application. Elles sont envoyées à partir de vos composants et interceptées par des réducteurs.
+
+Voici un exemple d'action :
+
+```typescript
+export const increment = () => ({
+ type: '[Counter Component] Increment'
+});
+```
+
+## Réducteurs
+
+Les réducteurs sont des fonctions pures qui prennent l'état actuel et une action, et renvoient un nouvel état. Ils ne modifient jamais l'état existant, mais plutôt créent une copie de celui-ci.
+
+Voici un exemple de réducteur :
+
+```typescript
+export function counterReducer(state: number = 0, action: Action) {
+ switch (action.type) {
+    case '[Counter Component] Increment':
+      return state + 1;
+    default:
+      return state;
+ }
+}
+```
+
+## Store
+
+Le store est l'objet qui reçoit les actions et les transmet aux réducteurs. Il stocke l'état global de l'application et permet aux composants de s'abonner à des parties spécifiques de l'état.
+
+Voici comment vous pouvez créer un store :
+
+```typescript
+import { createStore } from '@ngrx/store';
+import { counterReducer } from './counter.reducer';
+
+export const store = createStore(counterReducer);
+```
+
+Maintenant, vous savez comment créer des actions, des réducteurs et un store dans NgRx. Ces concepts sont fondamentaux pour comprendre comment fonctionne NgRx et comment il peut être utilisé pour gérer l'état global de votre application Angular.

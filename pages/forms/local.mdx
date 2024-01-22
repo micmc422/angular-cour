@@ -1,0 +1,17 @@
+# Gestion de l'état local dans les formulaires
+
+Dans Angular, chaque formulaire est associé à une instance de `FormGroup`. Un `FormGroup` est une collection de contrôles de formulaire qui peuvent être liés à des champs de formulaire dans le modèle HTML.
+
+Voici un exemple de création d'un `FormGroup` :
+
+```typescript
+this.form = this.fb.group({
+ firstName: ['', Validators.required],
+ lastName: ['', Validators.required],
+ email: ['', [Validators.required, Validators.email]],
+});
+```
+
+Dans cet exemple, trois contrôles de formulaire sont créés : `firstName`, `lastName` et `email`. Chaque contrôle de formulaire est initialisé avec une valeur vide et est associé à une ou plusieurs validations.
+
+La gestion de l'état local dans les formulaires est une étape cruciale pour assurer que les données saisies par l'utilisateur sont correctement traitées et validées avant d'être utilisées par l'application.

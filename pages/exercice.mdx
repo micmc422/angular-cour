@@ -1,0 +1,603 @@
+# Exercice Projet : Application de Blog Angular
+
+## Objectif
+
+Construire une application de blog simple qui permet aux utilisateurs de lire des articles, de les créer et de les commenter.
+
+## Prérequis
+
+- Installation de Node.js et npm
+- Connaissance de base d'Angular, y compris les composants, les services, le routage, et les formulaires.
+
+## Étape 1 : Mise en place de l'environnement
+
+Créez un nouveau projet Angular en utilisant Angular CLI :
+
+```bash
+ng new angular-blog
+cd angular-blog
+```
+
+## Étape 2 : Création des composants
+
+Générez les composants nécessaires pour l'application :
+
+```bash
+ng generate component components/article-list
+ng generate component components/article-detail
+ng generate component components/article-create
+ng generate component components/article-comment
+```
+
+**article-list.component.ts**
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-article-list',
+ templateUrl: './article-list.component.html',
+ styleUrls: ['./article-list.component.css']
+})
+export class ArticleListComponent {
+ // Ici, vous pouvez déclarer les variables et les méthodes nécessaires pour votre composant
+}
+```
+
+**article-list.component.html**
+
+```html
+<!-- Ici, vous pouvez ajouter le HTML nécessaire pour afficher la liste des articles -->
+```
+
+**article-list.component.css**
+
+```css
+/* Ici, vous pouvez ajouter les styles CSS nécessaires pour votre composant */
+```
+
+**article-detail.component.ts**
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-article-detail',
+ templateUrl: './article-detail.component.html',
+ styleUrls: ['./article-detail.component.css']
+})
+export class ArticleDetailComponent {
+ // Ici, vous pouvez déclarer les variables et les méthodes nécessaires pour votre composant
+}
+```
+
+**article-detail.component.html**
+
+```html
+<!-- Ici, vous pouvez ajouter le HTML nécessaire pour afficher les détails d'un article -->
+```
+
+**article-detail.component.css**
+
+```css
+/* Ici, vous pouvez ajouter les styles CSS nécessaires pour votre composant */
+```
+
+**article-create.component.ts**
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-article-create',
+ templateUrl: './article-create.component.html',
+ styleUrls: ['./article-create.component.css']
+})
+export class ArticleCreateComponent {
+ // Ici, vous pouvez déclarer les variables et les méthodes nécessaires pour votre composant
+}
+```
+
+**article-create.component.html**
+
+```html
+<!-- Ici, vous pouvez ajouter le HTML nécessaire pour créer un nouvel article -->
+```
+
+**article-create.component.css**
+
+```css
+/* Ici, vous pouvez ajouter les styles CSS nécessaires pour votre composant */
+```
+
+**article-comment.component.ts**
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-article-comment',
+ templateUrl: './article-comment.component.html',
+ styleUrls: ['./article-comment.component.css']
+})
+export class ArticleCommentComponent {
+ // Ici, vous pouvez déclarer les variables et les méthodes nécessaires pour votre composant
+}
+```
+
+**article-comment.component.html**
+
+```html
+<!-- Ici, vous pouvez ajouter le HTML nécessaire pour ajouter des commentaires à un article -->
+```
+
+**article-comment.component.css**
+
+```css
+/* Ici, vous pouvez ajouter les styles CSS nécessaires pour votre composant */
+```
+
+Ces exemples sont très basiques et servent de point de départ pour chaque composant. Vous devrez ajouter votre propre logique et fonctionnalités en fonction des besoins spécifiques de votre application.
+
+## Étape 3 : Modélisation des données
+
+Créez des interfaces pour définir la structure des données :
+
+- Article (id, titre, contenu, auteur, date)
+- Commentaire (id, contenu, auteur, date, articleId)
+
+```typescript
+interface Article {
+ id: number;
+ titre: string;
+ contenu: string;
+ auteur: string;
+ date: Date;
+}
+
+interface Commentaire {
+ id: number;
+ contenu: string;
+ auteur: string;
+ date: Date;
+ articleId: number;
+}
+```
+
+Ces interfaces définissent la structure des objets `Article` et `Commentaire`. Chaque interface a des propriétés correspondantes avec des types spécifiques. Par exemple, l'interface `Article` a une propriété `titre` de type `string`, une propriété `contenu` de type `string`, etc.
+
+## Étape 4 : Création d'un service
+
+Générez un service pour gérer les opérations CRUD sur les articles :
+
+```bash
+ng generate service services/article
+```
+
+**article.service.ts**
+
+```typescript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+ providedIn: 'root'
+})
+export class ArticleService {
+
+ constructor() { }
+
+ // Ici, vous pouvez définir les méthodes pour gérer les opérations CRUD sur les articles
+}
+```
+
+Dans ce service, vous pouvez définir des méthodes pour gérer les opérations Create, Read, Update et Delete (CRUD) sur les articles. Par exemple, vous pourriez avoir des méthodes comme `getAllArticles()`, `getArticleById(id)`, `createArticle(article)`, `updateArticle(id, article)` et `deleteArticle(id)`.
+
+Notez que ces méthodes ne font que déclarer l'interface du service. Vous devrez implémenter la logique réelle pour interagir avec votre backend ou votre base de données.
+
+## Étape 5 : Routage
+
+Configurez le routage pour les différentes vues de l'application :
+
+- Liste des articles (`/articles`)
+- Détail d'un article (`/articles/:id`)
+- Création d'un nouvel article (`/create-article`)
+
+Pour configurer le routage dans une application Angular, vous devez définir les routes dans un tableau de configuration de route. Chaque route est un objet qui définit le chemin de la route et le composant à charger lorsque cette route est activée.
+
+Voici comment vous pouvez configurer le routage pour votre application :
+
+**app-routing.module.ts**
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ArticleListComponent } from './components/article-list/article-list.component';
+import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
+import { ArticleCreateComponent } from './components/article-create/article-create.component';
+
+const routes: Routes = [
+ { path: 'articles', component: ArticleListComponent },
+ { path: 'articles/:id', component: ArticleDetailComponent },
+ { path: 'create-article', component: ArticleCreateComponent },
+];
+
+@NgModule({
+ imports: [RouterModule.forRoot(routes)],
+ exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+Dans cet exemple, nous avons défini trois routes :
+
+- `/articles` qui charge le `ArticleListComponent`
+- `/articles/:id` qui charge le `ArticleDetailComponent`. Le `:id` est un paramètre de route qui peut être utilisé pour identifier un article spécifique.
+- `/create-article` qui charge le `ArticleCreateComponent`.
+
+Assurez-vous de remplacer `'./components/article-list/article-list.component'` et les autres chemins par les chemins corrects vers vos composants.
+
+## Étape 6 : Formulaire de création d'article
+
+Utilisez Reactive Forms pour créer un formulaire de soumission d'article dans le composant `ArticleCreate`.
+
+Pour créer un formulaire de soumission d'article en utilisant Reactive Forms dans le composant `ArticleCreate`, vous pouvez suivre les étapes suivantes :
+
+1. Importez `ReactiveFormsModule` dans votre module.
+
+```typescript
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+ imports: [
+    // other imports 
+    ReactiveFormsModule
+ ],
+})
+export class YourModule { }
+```
+
+2. Dans votre composant `ArticleCreate`, importez `FormBuilder` et `FormGroup` depuis `@angular/forms`.
+
+```typescript
+import { FormBuilder, FormGroup } from '@angular/forms';
+```
+
+3. Créez une instance de `FormBuilder` dans le constructeur de votre composant.
+
+```typescript
+constructor(private fb: FormBuilder) { }
+```
+
+4. Créez un `FormGroup` pour votre formulaire.
+
+```typescript
+articleForm: FormGroup;
+
+constructor(private fb: FormBuilder) {
+ this.articleForm = this.fb.group({
+    title: '',
+    content: '',
+    author: ''
+ });
+}
+```
+
+5. Dans votre template HTML, liez votre formulaire à votre `FormGroup` en utilisant la directive `formGroup`.
+
+```html
+<form [formGroup]="articleForm">
+ <input formControlName="title" placeholder="Title">
+ <textarea formControlName="content" placeholder="Content"></textarea>
+ <input formControlName="author" placeholder="Author">
+ <button type="submit">Submit</button>
+</form>
+```
+
+6. Enfin, ajoutez une méthode pour gérer la soumission du formulaire.
+
+```typescript
+onSubmit() {
+ console.log(this.articleForm.value);
+}
+```
+
+Et dans votre template HTML, liez cette méthode à l'événement de soumission du formulaire.
+
+```html
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+ <!-- form fields here -->
+</form>
+```
+
+Cela devrait vous donner un formulaire de base pour la création d'articles. Vous pouvez ajouter plus de champs et de validation selon vos besoins.
+
+## Étape 7 : Affichage des articles
+
+Utilisez le service `ArticleService` pour récupérer et afficher la liste des articles dans `ArticleList`.
+
+Pour afficher la liste des articles en utilisant le service `ArticleService`, vous pouvez suivre les étapes suivantes :
+
+1. Dans votre composant `ArticleList`, injectez le service `ArticleService` dans le constructeur.
+
+```typescript
+constructor(private articleService: ArticleService) { }
+```
+
+2. Créez une variable pour stocker les articles.
+
+```typescript
+articles: Article[] = [];
+```
+
+3. Utilisez la méthode `getAllArticles()` du service `ArticleService` pour récupérer tous les articles lors de l'initialisation du composant.
+
+```typescript
+ngOnInit() {
+ this.articleService.getAllArticles().subscribe((articles: Article[]) => {
+   this.articles = articles;
+ });
+}
+```
+
+4. Dans votre template HTML, utilisez la directive `*ngFor` pour afficher la liste des articles.
+
+```html
+<div *ngFor="let article of articles">
+ <h2>{{ article.title }}</h2>
+ <p>{{ article.content }}</p>
+ <p>By {{ article.author }}</p>
+</div>
+```
+
+Cela devrait vous donner une liste de tous les articles. Vous pouvez personnaliser l'affichage des articles selon vos besoins.
+
+## Étape 8 : Détail d'un article
+
+Implémentez la logique pour afficher le détail d'un article dans `ArticleDetail`, y compris les commentaires associés.
+
+Pour afficher le détail d'un article dans `ArticleDetail`, y compris les commentaires associés, vous pouvez suivre les étapes suivantes :
+
+1. Dans votre composant `ArticleDetail`, injectez le service `ArticleService` dans le constructeur.
+
+```typescript
+constructor(private articleService: ArticleService) { }
+```
+
+2. Créez une variable pour stocker l'article actuel et les commentaires associés.
+
+```typescript
+article: Article;
+comments: Commentaire[] = [];
+```
+
+3. Utilisez la méthode `getArticleById()` du service `ArticleService` pour récupérer l'article et ses commentaires lors de l'initialisation du composant. Vous pouvez obtenir l'ID de l'article à partir des paramètres de route.
+
+```typescript
+ngOnInit() {
+ const id = this.route.snapshot.paramMap.get('id');
+ this.articleService.getArticleById(id).subscribe((article: Article) => {
+   this.article = article;
+   this.comments = article.comments;
+ });
+}
+```
+
+4. Dans votre template HTML, affichez les détails de l'article et les commentaires.
+
+```html
+<h2>{{ article.title }}</h2>
+<p>{{ article.content }}</p>
+<p>By {{ article.author }}</p>
+
+<h3>Comments</h3>
+<div *ngFor="let comment of comments">
+ <p>{{ comment.content }}</p>
+ <p>By {{ comment.author }}</p>
+</div>
+```
+
+Cela devrait vous donner une page de détail d'article avec tous les commentaires associés. Vous pouvez personnaliser l'affichage des détails de l'article et des commentaires selon vos besoins.
+
+## Étape 9 : Ajout de commentaires
+
+Permettez aux utilisateurs d'ajouter des commentaires sur les articles dans `ArticleComment`.
+
+Pour permettre aux utilisateurs d'ajouter des commentaires sur les articles dans `ArticleComment`, vous pouvez suivre les étapes suivantes :
+
+1. Dans votre composant `ArticleComment`, injectez le service `ArticleService` dans le constructeur.
+
+```typescript
+constructor(private articleService: ArticleService) { }
+```
+
+2. Créez une variable pour stocker le commentaire.
+
+```typescript
+comment: Commentaire = {
+ id: null,
+ contenu: '',
+ auteur: '',
+ date: new Date(),
+ articleId: null
+};
+```
+
+3. Créez un formulaire pour le commentaire.
+
+```typescript
+commentForm: FormGroup;
+
+constructor(private fb: FormBuilder, private articleService: ArticleService) {
+ this.commentForm = this.fb.group({
+    contenu: ['', Validators.required],
+    auteur: ['', Validators.required]
+ });
+}
+```
+
+4. Ajoutez une méthode pour soumettre le formulaire.
+
+```typescript
+onSubmit() {
+ if (this.commentForm.valid) {
+    this.articleService.addComment(this.commentForm.value).subscribe(() => {
+      // Redirect to the article detail page or show a success message
+    });
+ }
+}
+```
+
+5. Dans votre template HTML, liez votre formulaire au formulaire `commentForm` et liez la méthode `onSubmit` à l'événement de soumission du formulaire.
+
+```html
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+ <input formControlName="contenu" placeholder="Contenu">
+ <input formControlName="auteur" placeholder="Auteur">
+ <button type="submit">Ajouter un commentaire</button>
+</form>
+```
+
+Cela devrait vous donner un formulaire pour ajouter des commentaires. Vous pouvez ajouter plus de champs et de validation selon vos besoins.
+
+## Étape 10 : Stylisation
+
+Appliquez des styles CSS pour améliorer l'apparence de l'application.
+
+Pour styliser votre application Angular, vous pouvez utiliser CSS standard ou des préprocesseurs comme Sass ou Less. Vous pouvez également utiliser des frameworks CSS comme Bootstrap ou Material UI pour un design rapide. Voici quelques suggestions générales pour styliser votre application :
+
+1. **Stylisation globale** : Vous pouvez ajouter des styles globaux dans le fichier `styles.css` à la racine de votre projet. Par exemple, vous pouvez définir des styles pour le corps entier, les titres, les paragraphes, etc.
+
+```css
+body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #f0f0f0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ color: #333;
+}
+
+p {
+ color: #666;
+}
+```
+
+2. **Stylisation de composants** : Pour chaque composant, vous pouvez ajouter des styles spécifiques dans le fichier CSS correspondant. Par exemple, pour le composant `ArticleList`, vous pouvez ajouter des styles dans le fichier `article-list.component.css`.
+
+```css
+.article-list {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+}
+
+.article-item {
+ border: 1px solid #ddd;
+ padding: 20px;
+ border-radius: 5px;
+}
+```
+
+3. **Utilisation de classes CSS** : Vous pouvez utiliser des classes CSS pour styliser vos composants. Par exemple, vous pouvez ajouter une classe `highlight` pour mettre en évidence certains articles.
+
+```css
+.highlight {
+ background-color: #ff0;
+}
+```
+
+Et dans votre template HTML, vous pouvez ajouter cette classe à l'élément approprié.
+
+```html
+<div class="article-item highlight">
+ <!-- Article content here -->
+</div>
+```
+
+4. **Utilisation de media queries** : Pour rendre votre application responsive, vous pouvez utiliser des media queries pour appliquer différents styles en fonction de la taille de l'écran.
+
+```css
+@media (max-width: 600px) {
+ .article-list {
+    flex-direction: row;
+ }
+}
+```
+
+Ces sont juste quelques suggestions générales. La stylisation exacte dépendra de vos besoins spécifiques et de la conception de votre application.
+
+## Étape 11 : Déploiement
+
+Préparez l'application pour la production et déployez-la sur Firebase ou Netlify.
+
+Pour préparer votre application Angular pour la production et la déployer sur Firebase ou Netlify, vous pouvez suivre les étapes suivantes :
+
+1. **Préparation de l'application pour la production** : Avant de déployer votre application, vous devez la préparer pour la production. Cela comprend la compilation de votre application en mode production, qui optimise votre code pour la performance et la taille du bundle. Vous pouvez le faire en exécutant la commande suivante dans votre terminal :
+
+```bash
+ng build --prod
+```
+
+Cette commande va générer une version optimisée de votre application dans le dossier `dist/` de votre projet.
+
+2. **Déploiement sur Firebase** : Si vous choisissez de déployer votre application sur Firebase, vous pouvez suivre les étapes suivantes :
+
+   - Installez Firebase CLI en exécutant la commande suivante dans votre terminal :
+
+   ```bash
+   npm install -g firebase-tools
+   ```
+
+   - Connectez-vous à votre compte Firebase en exécutant la commande suivante :
+
+   ```bash
+   firebase login
+   ```
+
+   - Initialisez votre projet Firebase en exécutant la commande suivante dans le dossier de votre projet :
+
+   ```bash
+   firebase init
+   ```
+
+   - Sélectionnez "Hosting" lorsqu'il vous est demandé quel Firebase CLI features vous voulez utiliser.
+
+   - Choisissez le projet Firebase où vous voulez déployer votre application.
+
+   - Lorsqu'il vous est demandé quel dossier vous voulez déployer, entrez `dist/<your-project-name>`.
+
+   - Quand il vous est demandé si vous voulez configurer votre application comme une application monopage, choisissez "Yes".
+
+   - Enfin, déployez votre application en exécutant la commande suivante :
+
+   ```bash
+   firebase deploy
+   ```
+
+3. **Déploiement sur Netlify** : Si vous choisissez de déployer votre application sur Netlify, vous pouvez suivre les étapes suivantes :
+
+   - Créez un nouveau site sur Netlify.
+
+   - Connectez votre GitHub, GitLab ou Bitbucket repository à Netlify.
+
+   - Configurez les options de build et de deploy. Pour le build command, entrez `npm run build` et pour le publish directory, entrez `dist/<your-project-name>`.
+
+   - Cliquez sur "Deploy site" pour déployer votre application.
+
+Ces étapes devraient vous aider à préparer votre application Angular pour la production et à la déployer sur Firebase ou Netlify.
+
+## Consignes supplémentaires
+
+- Utilisez des services pour partager des données entre les composants.
+- Gérez les états des formulaires et les validations.
+- Utilisez des sélecteurs pour accéder à l'état de l'application.
+- Assurez-vous que l'application est responsive et testez-la sur différents appareils.
+
+## Ressources
+
+- [Documentation officielle d'Angular](https://angular.io/docs)
+- [Angular CLI](https://cli.angular.io/)
+- [Firebase](https://firebase.google.com/)
+- [Netlify](https://www.netlify.com/)

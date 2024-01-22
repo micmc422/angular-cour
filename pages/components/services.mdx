@@ -1,0 +1,44 @@
+# Partage de données et de fonctions entre les composants avec les Services
+
+## Qu'est-ce qu'un Service?
+
+Un Service en Angular est une classe avec un but spécifique. Il peut être injecté dans différents composants, ce qui permet de partager des données et des fonctions entre eux. Les Services sont généralement utilisés pour effectuer des opérations communes telles que la récupération de données, la manipulation de données, etc.
+
+## Comment créer un Service?
+
+Pour créer un Service, vous pouvez utiliser la commande Angular CLI `ng generate service` ou `ng g s` pour court. Par exemple, pour créer un Service appelé `DataService`, vous pouvez exécuter la commande suivante :
+
+```bash
+ng generate service data
+```
+
+Cette commande va générer un fichier `data.service.ts` avec une classe `DataService` vide.
+
+## Comment utiliser un Service?
+
+Pour utiliser un Service, vous devez l'injecter dans le constructeur du composant où vous souhaitez l'utiliser. Voici un exemple d'utilisation d'un Service :
+
+```typescript
+import { Component } from '@angular/core';
+import { DataService } from './data.service';
+
+@Component({
+ selector: 'app-root',
+ templateUrl: './app.component.html',
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ constructor(private dataService: DataService) { }
+
+ getData() {
+    const data = this.dataService.getData();
+    console.log(data);
+ }
+}
+```
+
+Dans cet exemple, `DataService` est injecté dans `AppComponent` et sa méthode `getData()` est appelée.
+
+## Conclusion
+
+Les Services sont un moyen puissant de partager des données et des fonctions entre les composants en Angular. Ils permettent de garder le code propre et organisé, et de promouvoir la réutilisation du code.

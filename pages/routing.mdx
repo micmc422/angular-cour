@@ -1,0 +1,29 @@
+# Routage avec Angular Router
+
+Le routage est un aspect crucial de toute application web. Il permet de naviguer entre différentes parties de l'application sans recharger la page entière. En Angular, le routage est géré par le module Angular Router.
+
+## Qu'est-ce que le routage ?
+
+Le routage est le processus de navigation entre différentes vues ou pages dans une application. Dans une application Angular, chaque vue est généralement représentée par un composant. Le routage permet de charger différents composants en fonction de l'URL actuelle.
+
+## Comment fonctionne le routage dans Angular ?
+
+Le routage dans Angular est basé sur le concept de "routes". Une route est une configuration qui lie une URL à un composant spécifique. Lorsqu'une URL correspond à une route, le composant associé est chargé.
+
+Par exemple, considérons une application avec deux vues : Home et About. Nous pouvons configurer les routes comme suit :
+
+```typescript
+const routes: Routes = [
+ { path: '', redirectTo: '/home', pathMatch: 'full' },
+ { path: 'home', component: HomeComponent },
+ { path: 'about', component: AboutComponent },
+];
+```
+
+Dans cet exemple, lorsque l'utilisateur navigue vers '/home', le `HomeComponent` est chargé. De même, lorsque l'utilisateur navigue vers '/about', le `AboutComponent` est chargé.
+
+## Que ferons-nous dans cette section ?
+
+Dans cette section, nous allons explorer en détail le routage dans Angular. Nous verrons comment configurer les routes, comment naviguer entre les vues, et comment créer des routes dynamiques.
+
+Préparez-vous à plonger profondément dans le monde du routage avec Angular Router !

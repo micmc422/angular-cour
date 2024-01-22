@@ -1,0 +1,38 @@
+# Validation des formulaires avec Reactive Forms
+
+Reactive Forms est une API de formulaire flexible et puissante qui permet de gérer l'état du formulaire de manière déclarative. Il offre une grande flexibilité pour la validation des formulaires, permettant de définir des règles de validation personnalisées pour chaque champ de formulaire.
+
+## Définition des règles de validation
+
+Pour définir des règles de validation pour un champ de formulaire, vous pouvez utiliser la méthode `setValidators()` sur une instance de `AbstractControl`. Par exemple, pour ajouter une règle de validation requise à un champ de formulaire, vous pouvez faire comme suit :
+
+```typescript
+this.form = this.fb.group({
+ email: ['', [Validators.required, Validators.email]]
+});
+```
+
+Dans cet exemple, le champ `email` est initialisé avec une chaîne vide comme valeur initiale et deux validateurs sont attachés à ce champ : `Validators.required` et `Validators.email`.
+
+## Affichage des messages d'erreur
+
+Pour afficher des messages d'erreur lorsque la validation échoue, vous pouvez utiliser la propriété `errors` sur une instance de `AbstractControl`. Par exemple, pour afficher un message d'erreur lorsque le champ `email` est vide, vous pouvez faire comme suit :
+
+```html
+<input type="email" formControlName="email">
+<div *ngIf="form.controls.email.errors?.required">Email is required</div>
+```
+
+Dans cet exemple, le message d'erreur "Email is required" sera affiché si le champ `email` est vide.
+
+## Gestion de la soumission du formulaire
+
+Pour gérer la soumission du formulaire, vous pouvez utiliser la méthode `submit()` sur une instance de `FormGroup`. Par exemple, pour soumettre le formulaire lorsque l'utilisateur clique sur un bouton, vous pouvez faire comme suit :
+
+```html
+<button (click)="form.submit()">Submit</button>
+```
+
+Dans cet exemple, le formulaire sera soumis lorsque l'utilisateur clique sur le bouton "Submit".
+
+Préparez-vous à plonger profondément dans le monde de la validation des formulaires avec Reactive Forms dans Angular !
