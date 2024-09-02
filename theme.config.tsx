@@ -28,7 +28,7 @@ const config: DocsThemeConfig = {
   },
   footer: {
     text: (<span>
-        Champollion - TW3 - angular - {new Date().getFullYear()} ©{' '} - 
+        Champollion - TW3 - angular - {new Date().getFullYear()} ©{' '}&nbsp;-&nbsp;
         <a href="https://occitaweb.fr" target="_blank">
           Bardy Michaël
         </a>
