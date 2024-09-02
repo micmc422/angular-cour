@@ -28,8 +28,8 @@ const config: DocsThemeConfig = {
   },
   footer: {
     text: (<span>
-        Champollion - TW3 - angular - {new Date().getFullYear()} ©{' '} -
-        <a href="https://nextra.site" target="_blank">
+        Champollion - TW3 - angular - {new Date().getFullYear()} ©{' '} - 
+        <a href="https://occitaweb.fr" target="_blank">
           Bardy Michaël
         </a>
         .
